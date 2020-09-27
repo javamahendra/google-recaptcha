@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+<script src="https://www.google.com/recaptcha/api.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="card">
+			<div class="card-header ">
+				<h5>USER REGISTERATION FORM</h5>
+			</div>
+			<form th:action="@{/user/create}" method="POST" th:object="${user}">
+				<div class="card-body">
+					<div class="row form-group">
+						<div class="col-3">
+							USERNAME 
+						</div>
+						<div class="col-4">
+							<input type="text" class="form-control" th:field="*{username}"/>  
+						</div>
+					</div>
+					<div class="row form-group">
+						<div class="col-3">
+							EMAIL 
+						</div>
+						<div class="col-4">
+							<input type="text" class="form-control" th:field="*{email}"/>  
+						</div>
+					</div>
+					<div class="row form-group">
+						<div class="col-3">
+							MOBILE NO 
+						</div>
+						<div class="col-4">
+							<input type="text" class="form-control" th:field="*{mobileno}"/>  
+						</div>
+					</div>
+					<div class="row form-group">
+						<div class="col-3">
+							PASSWORD 
+						</div>
+						<div class="col-4">
+							<input type="password" class="form-control" th:field="*{password}"/>  
+						</div>
+					</div>
+					<div class="row form-group">
+						<div class="col-3">
+							RECAPTCHA VALIDATE 
+						</div>
+						<div class="col-4">
+							<div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>
+						</div>
+					</div>
+					<div class="row form-group">
+						<div class="col-3"><input type="submit" class="btn btn-success" value="REGISTER"/></div>
+						<div class="col-4"><a href="@{/user/all}" class="btn btn-primary">USER'S DATA</a></div>
+					</div>
+				</div>
+			</form>
+			<div class="card-footer">
+				<h6 th:text="${msg}"></h6>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
